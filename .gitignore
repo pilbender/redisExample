@@ -1,6 +1,7 @@
 # Maven build binaries
 target/
 **/pom.xml.versionsBackup
+/dependency-reduced-pom.xml
 
 # Eclipse generated structures
 .settings/
