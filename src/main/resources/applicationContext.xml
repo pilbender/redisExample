@@ -65,6 +65,18 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 		<property name="usePool" value="true" />
 	</bean>
 
+	<!-- Unable to make this work:
+	Exception in thread "main" java.lang.IncompatibleClassChangeError: class org.springframework.data.redis.connection.lettuce.BytesRedisCodec
+	has interface com.lambdaworks.redis.codec.RedisCodec as super class
+	<bean id="lettucePool" class="org.springframework.data.redis.connection.lettuce.DefaultLettucePool" >
+		<constructor-arg value="${redis.hostname}" />
+		<constructor-arg value="${redis.port}" />
+	</bean>
+	<bean id="redisConnectionFactory" class="org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory">
+		<constructor-arg ref="lettucePool" />
+	</bean>
+	-->
+
 	<bean id="redisOps" class="org.springframework.data.redis.core.RedisTemplate">
 		<property name="connectionFactory" ref="redisConnectionFactory"/>
 	</bean>
